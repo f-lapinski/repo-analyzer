@@ -1,4 +1,4 @@
-# Data Analysis from Git Platforms
+- # Data Analysis from Git Platforms
 
 **Collecting and presenting statistics** on:
 - **Pull requests**
@@ -33,19 +33,13 @@ Some endpoints support special formats, such as:
 
 ### Basic Endpoints
 
-- **List PRs**: 
-`GET /repos/{owner}/{repo}/pulls`
-- **Pull Request details**: `GET /repos/{owner}/{repo}/pulls/{pull_number}`
-- **PR comments**: `GET /repos/{owner}/{repo}/pulls/comments`
-- **Commit comments**: `GET /repos/{owner}/{repo}/commits/{commit_sha}/comments`
-- **List of commits**: `GET /repos/{owner}/{repo}/commits`
-- **Commit details**: `GET /repos/{owner}/{repo}/commits/{commit_sha}`
-- **List of PR reviews**: `GET /repos/{owner}/{repo}/pulls/{pull_number}/reviews`
-- **Review comments for PR**: `GET /repos/{owner}/{repo}/pulls/{pull_number}/reviews/{review_id}/comments`
-- **User information**: `GET /users/{username}`
-- **List of user's organizations**: `GET /users/{username}/orgs`
-- **Members of an organization**: `GET /orgs/{org}/members`
-- **List of teams in an organization**: `GET /orgs/{org}/teams`
+- [**Pull Requests**](https://docs.github.com/en/rest/pulls/pulls?apiVersion=2022-11-28)
+- [**Commits**](https://docs.github.com/en/rest/commits/commits?apiVersion=2022-11-28)
+- [**Commit Comments**](https://docs.github.com/en/rest/commits/comments?apiVersion=2022-11-28)
+- [**Branches**](https://docs.github.com/en/rest/branches/branches?apiVersion=2022-11-28)
+- [**Teams**](https://docs.github.com/en/rest/teams/teams?apiVersion=2022-11-28)
+- [**Team Members**](https://docs.github.com/en/rest/teams/members?apiVersion=2022-11-28#about-team-members)
+- [**Users**](https://docs.github.com/en/rest/users/users?apiVersion=2022-11-28)
 
 ### Authentication Methods
 

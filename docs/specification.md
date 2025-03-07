@@ -1,50 +1,53 @@
-- # Data Analysis from Git Platforms
+# Repository Data Aggregator & Analyzer
 
-**Collecting and presenting statistics** on:
-- **Pull requests**
-- **Comments**
-- **Commits**
-- **Code reviews**
-- **Users and their groups**
+*This project aims to aggregate data from a given repository using APIs (e.g., GitHub API), process the collected information, and present it in a clear and insightful format. The system will analyze various repository metrics, generate comparisons, and provide meaningful insights through visualizations and structured reports. The goal is to enhance data-driven decision-making for developers, teams, and organizations.*
 
-*GitHub's REST API considers every pull request an issue, but not every issue is a pull request. For this reason, "Issues" endpoints may return both issues and pull requests in the response. You can identify pull requests by the `pull_request` key. Be aware that the `id` of a pull request returned from "Issues" endpoints will be an issue id. To find out the pull request id, use the "[List pull requests](https://docs.github.com/rest/pulls/pulls#list-pull-requests)" endpoint.*
+### Key Features
+- **Data Aggregation** 
+  - Collect repository data (commits, contributors, stars, issues, etc.) via the GitHub API.
+- **Data Processing** 
+  - Analyze trends, compare repositories, and generate insights.
+- **Visualization** 
+  - Present data through charts, tables, and dashboards for better readability.
+
+
+### Target Audience
+- Open-source developers
+- Project maintainers
+- Organizations and research analysts
+
+### Expected Benefits
+
+- Simplified access to repository insights
+- Automated comparisons and trend analysis
+- A collaborative, open-source platform for developers
 
 ## GitHub
 
-API: [https://docs.github.com/en/rest?apiVersion=2022-11-28](https://docs.github.com/en/rest?apiVersion=2022-11-28)
+### API Endpoints for Data Aggregation
+- This project will use the GitHub API to collect and process repository data. The following endpoints will be utilized:
 
-### Scanning for Changes
+#### Repository Metadata ([/repos/{owner}/{repo}](https://docs.github.com/en/rest/repos/repos?apiVersion=2022-11-28#get-a-repository))
 
-- We can scan it manually by requesting endpoints, or we can use webhooks for realtime information.
+- Retrieves general repository information, including stars, forks, issues, and descriptions.
 
-### Response Media Types from API
+#### Contributors & Activity ([/repos/{owner}/{repo}/contributors](https://docs.github.com/en/rest/repos/repos?apiVersion=2022-11-28#list-repository-contributors))
 
-Mostly used are:
+- Aggregates contributor data, including the number of contributions per user.
 
-- `application/vnd.github+json`
+#### Commit History ([/repos/{owner}/{repo}/commits](https://docs.github.com/en/rest/commits/commits?apiVersion=2022-11-28#list-commits))
 
-- `application/json`
+- Fetches commit logs to analyze development activity over time.
 
-Some endpoints support special formats, such as:
+#### Issues & Pull Requests ([/repos/{owner}/{repo}/issues](**https://docs.github.com/en/rest/issues/issues?apiVersion=2022-11-28#list-repository-issues**) & [/repos/{owner}/{repo}/pulls](https://docs.github.com/en/rest/pulls/pulls?apiVersion=2022-11-28#list-pull-requests))
 
-- `diff`, `patch`, `sha` – for commits and pull requests
+- Provides insights into issue tracking, bug reports, and pull request trends.
 
-- `full`, `raw`, `text`, `html` – for other resources
 
-### Basic Endpoints
+#### Repository Statistics ([/repos/{owner}/{repo}/stats/commit_activity](https://docs.github.com/en/rest/metrics/statistics?apiVersion=2022-11-28#get-the-last-year-of-commit-activity))
 
-- [**Pull Requests**](https://docs.github.com/en/rest/pulls/pulls?apiVersion=2022-11-28)
-- [**Commits**](https://docs.github.com/en/rest/commits/commits?apiVersion=2022-11-28)
-- [**Commit Comments**](https://docs.github.com/en/rest/commits/comments?apiVersion=2022-11-28)
-- [**Branches**](https://docs.github.com/en/rest/branches/branches?apiVersion=2022-11-28)
-- [**Teams**](https://docs.github.com/en/rest/teams/teams?apiVersion=2022-11-28)
-- [**Team Members**](https://docs.github.com/en/rest/teams/members?apiVersion=2022-11-28#about-team-members)
-- [**Users**](https://docs.github.com/en/rest/users/users?apiVersion=2022-11-28)
+- Collects commit activity data to track repository growth and engagement.
 
-### Authentication Methods
+#### Stargazers & Popularity ([/repos/{owner}/{repo}/stargazers](https://docs.github.com/en/rest/activity/starring?apiVersion=2022-11-28#list-stargazers))
 
-- For authentication, we can use a couple of methods:
-  - Personal Access Token (PAT)
-  - OAuth
-  - GitHup App
-  - Webhooks
+Analyzes the popularity of the repository based on user engagement.
